@@ -1,7 +1,7 @@
 /**
  * Projects in progress — one fixed card per initiative, side by side.
  *
- * Grouped by initiative rather than listed as raw Jira issues, and every card
+ * Grouped by initiative rather than listed as raw delivery-tracking issues, and every card
  * shows the same five facts in the same places so two accounts can be compared
  * at a glance. Nothing expands: what a card has to say, it says.
  *
@@ -26,24 +26,24 @@ function statusTone(status) {
  */
 export function render(snapshot) {
   const projects = snapshot.projects;
-  const jira = snapshot.sources.find((s) => s.id === 'jira');
+  const deliveryTracking = snapshot.sources.find((s) => s.id === 'delivery-tracking');
   const blocked = projects.filter((p) => p.status === 'blocked').length;
 
-  const summary = jira?.state === 'unavailable'
-    ? '<span class="rs-sum-none">Jira unavailable</span>'
+  const summary = deliveryTracking?.state === 'unavailable'
+    ? '<span class="rs-sum-none">Delivery tracking unavailable</span>'
     : `<span class="rs-sum-fig">${esc(formatCount(projects.length))} in progress</span>`
       + (blocked
         ? ` <span class="rs-sum-delta rs-tone-down">${esc(formatCount(blocked))} blocked</span>`
         : '');
 
   const sec = section('projects', 'Projects in progress', {
-    subtitle: 'Jira (simulated)',
+    subtitle: 'Delivery tracking (simulated)',
     summary,
   });
   const host = body(sec);
 
-  if (jira?.state === 'unavailable') {
-    host.appendChild(unavailableBlock('Jira', jira.note));
+  if (deliveryTracking?.state === 'unavailable') {
+    host.appendChild(unavailableBlock('Delivery tracking', deliveryTracking.note));
     return sec;
   }
 

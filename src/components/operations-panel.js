@@ -20,22 +20,22 @@ import { mountRaisedResolved } from '../charts/operations.js';
  */
 export function render(snapshot) {
   const t = snapshot.tickets;
-  const src = snapshot.sources.find((s) => s.id === 'jira');
+  const src = snapshot.sources.find((s) => s.id === 'delivery-tracking');
 
   const summary = t.available
     ? `<span class="rs-sum-fig">${esc(formatCount(t.open))} open</span>`
       + ` <span class="rs-sum-delta ${t.highSeverity > 0 ? 'rs-tone-attention' : 'rs-tone-flat'}">`
       + `${esc(formatCount(t.highSeverity))} high severity</span>`
-    : '<span class="rs-sum-none">Jira unavailable</span>';
+    : '<span class="rs-sum-none">Delivery tracking unavailable</span>';
 
   const sec = section('operations', 'Operational activity', {
-    subtitle: 'Jira (simulated)',
+    subtitle: 'Delivery tracking (simulated)',
     summary,
   });
   const host = body(sec);
 
   if (!t.available) {
-    host.appendChild(unavailableBlock('Jira', src?.note));
+    host.appendChild(unavailableBlock('Delivery tracking', src?.note));
     return sec;
   }
 

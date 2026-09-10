@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  productName: 'Aperture',
-  companyName: 'Oakridge',
+  productName: 'Alex Curtin',
+  companyName: 'Alex Curtin',
   companyDescriptor: 'Fund-market infrastructure intelligence',
   palette: {
     navy: '#0B1F3A',

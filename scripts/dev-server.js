@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Local static + /api/* proxy for Pulse testing.
+ * Local static + /api/* proxy for development.
  * Loads env from .env.local / .env.
- * Usage: node scripts/local-pulse-server.js
+ * Usage: node scripts/dev-server.js
  */
 const http = require('http');
 const fs = require('fs');
@@ -172,7 +172,7 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   const db = !!(process.env.DATABASE_URL || process.env.POSTGRES_URL);
   const key = !!(process.env.ANTHROPIC_API_KEY && process.env.ANTHROPIC_API_KEY !== 'PASTE-YOUR-KEY-HERE');
-  console.log(`Pulse local server http://127.0.0.1:${PORT}`);
+  console.log(`Local server http://127.0.0.1:${PORT}`);
   console.log(`Market Research: http://127.0.0.1:${PORT}/tools/market-research/`);
   console.log(`Proxy health:      http://127.0.0.1:${PORT}/api/claude`);
   console.log(`DATABASE_URL: ${db ? 'set' : 'MISSING'}`);

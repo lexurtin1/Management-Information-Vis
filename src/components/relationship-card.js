@@ -16,21 +16,21 @@ import { unavailableBlock } from './states.js';
  */
 export function render(snapshot) {
   const r = snapshot.relationship;
-  const src = snapshot.sources.find((s) => s.id === 'salesforce');
+  const src = snapshot.sources.find((s) => s.id === 'crm');
 
   const summary = r.available
     ? `<span class="rs-sum-fig">${esc(r.manager?.name || '—')}</span>`
       + ` <span class="rs-sum-delta rs-tone-flat">${esc(String(r.contacts?.length ?? 0))} contacts</span>`
-    : '<span class="rs-sum-none">Salesforce unavailable</span>';
+    : '<span class="rs-sum-none">CRM unavailable</span>';
 
   const sec = section('relationship', 'Relationship and ownership', {
-    subtitle: 'Salesforce (simulated)',
+    subtitle: 'CRM (simulated)',
     summary,
   });
   const host = body(sec);
 
   if (!r.available) {
-    host.appendChild(unavailableBlock('Salesforce', src?.note));
+    host.appendChild(unavailableBlock('CRM', src?.note));
     return sec;
   }
 
