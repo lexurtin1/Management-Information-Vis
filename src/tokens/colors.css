@@ -1,0 +1,33 @@
+/* Color tokens — derived from app.config.js palette (navy / crimson / white). */
+:root {
+  --color-navy: #0B1F3A;
+  --color-crimson: #9B1B30;
+  --color-white: #FFFFFF;
+
+  --color-navy-800: #0B1F3A;
+  --color-navy-700: #163056;
+  --color-navy-600: #1E3F6B;
+  --color-navy-100: #E8EEF5;
+  --color-navy-050: #F4F7FB;
+
+  --color-crimson-700: #7A1526;
+  --color-crimson-600: #9B1B30;
+  --color-crimson-100: #F8E8EC;
+
+  --color-bg: var(--color-white);
+  --color-bg-subtle: var(--color-navy-050);
+  --color-surface: var(--color-white);
+
+  --text-strong: var(--color-navy);
+  --text-primary: #1A334F;
+  --text-muted: #5A6B7D;
+  --text-inverse: var(--color-white);
+  --text-link: var(--color-crimson);
+
+  --border-subtle: #D7DEE7;
+  --border-default: #B8C3D0;
+
+  --brand-primary: var(--color-navy);
+  --brand-accent: var(--color-crimson);
+  --focus-ring: var(--color-crimson);
+}
